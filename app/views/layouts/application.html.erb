@@ -18,12 +18,18 @@
  <!DOCTYPE html>
 <html>
   <head>
-    <title><title><%= full_title(yield(:title)) %></title></title>
-    <%= stylesheet_link_tag    "application", :media => "all" %>
-    <%= javascript_include_tag "application" %>
+    <title><%= full_title(yield(:title)) %></title>
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= render 'layouts/shim' %>
   </head>
   <body>
-    <%= yield %>
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <%= yield %>
+    </div>
+    <%= render 'layouts/footer' %>
   </body>
 </html>
